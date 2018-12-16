@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bot": "node node_modules/@pai-tech/pai-bot/PAI.js"
   },
   "keywords": [
     "PAI-CODE",
@@ -12,7 +13,15 @@
   ],
   "license": "GPL-3.0",
   "dependencies": {
-    "@pai-tech/pai-bot": "^1.0.11",
-    "@pai-tech/pai-code": "^1.1.43"
+    "@pai-tech/pai-code": "^1.1.44",
+    "app-root-path": "^2.1.0"
+  },
+  "devDependencies": {
+    "@pai-tech/pai-bot": "^1.0.19"
+  },
+  "PAI": {
+    "includeFiles": [
+      "./PAI.js"
+    ]
   }
 }

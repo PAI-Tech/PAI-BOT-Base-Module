@@ -1,4 +1,4 @@
-const Module = require('./src/my-module/pcm-my-module');
+const Module = require('./src/pai-module/pcm-my-module');
 
 
 module.exports = {

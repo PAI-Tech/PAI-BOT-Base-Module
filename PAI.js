@@ -1,7 +1,5 @@
 const { PAICodeCommand, PAICodeCommandContext, PAICodeModule, PAICode } = require('@pai-tech/pai-code');
-const {   PAIBotModule,    PAIBotManager,    PAIBot,    PAIBotStatus } = require('@pai-tech/pai-bot');
 const { Module } = require('./index');
-
 
 async function start(){
     
