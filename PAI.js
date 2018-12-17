@@ -19,6 +19,9 @@ const { Module } = require('./index');
 async function start(){
     
     let module = new Module();
+    
+    await PAICode.modules["pai-bot"].applyBotDataSource(module);
+    
     await module.registerModule(); // register the module to PAICode
     
     let context = new PAICodeCommandContext('host','HardCoded');

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bot": "node node_modules/@pai-tech/pai-bot/PAI.js"
+    "bot": "node $NODE_DEBUG_OPTION node_modules/@pai-tech/pai-bot/PAI.js"
   },
   "keywords": [
     "PAI-CODE",
@@ -17,7 +17,7 @@
     "app-root-path": "^2.1.0"
   },
   "devDependencies": {
-    "@pai-tech/pai-bot": "^1.0.19"
+    "@pai-tech/pai-bot": "^1.0.21"
   },
   "PAI": {
     "includeFiles": [
