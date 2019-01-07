@@ -46,18 +46,7 @@ class PCM_MY_MODULE extends PAICodeModule
     {
         await super.load(this);
 
-        //Use this way to "bind" pai-code ops to function
-        this.loadCommandWithSchema(new PAIModuleCommandSchema({
-            op: "func",
-            func:"my_func",
-            /*
-             // Add parameter like this
-            params: {
-
-                "name": new PAIModuleCommandParamSchema("name", "place-holder", true, "name")
-            } */
-        }));
-        
+      
     }
     
     
@@ -69,14 +58,12 @@ class PCM_MY_MODULE extends PAICodeModule
      *
      * @param {PAICodeCommand} cmd
      */
-    my_func(cmd)
-    {
-        return new Promise( (resolve,reject) => {
-            return resolve('Hello World');
-        });
-    }
-    
-    
+	version(cmd){
+		return require("./../../package").version;
+	}
+	
+	
+	
 }
 
 module.exports = PCM_MY_MODULE;
