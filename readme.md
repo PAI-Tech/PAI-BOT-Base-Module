@@ -4,11 +4,11 @@
 
  > Description     : use this project to write your own module
 
- > Author          : Ron Fridman
+ > Author          : <developer-name>
 
  > Date Created    : 19/11/2018
 
- > Copyright **PAI-TECH** 2018, all right reserved
+ > Copyright **PAI-TECH** 2019, all right reserved
 
  *      This program is free software; you can redistribute it and/or
  		modify it under the terms of the GNU General Public License
