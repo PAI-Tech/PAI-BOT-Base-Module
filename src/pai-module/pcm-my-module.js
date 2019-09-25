@@ -46,6 +46,37 @@ class PCM_MY_MODULE extends PAICodeModule
     {
         await super.load(this);
 
+        const pai_code_interface = require("./pai-code-interface");
+        const pai_code_commands = pai_code_interface["pai-code-commands"];
+
+        /* load commands from pai-code-interface.json file */
+        if(pai_code_commands)
+        {
+            for(let cmd in pai_code_commands)
+            {
+                //console.log("command: " + pai_code_commands[cmd]["command-name"]);
+                let pai_code_command_params = pai_code_commands[cmd]["params"];
+                let schema_params = {};
+                if(pai_code_command_params)
+                {
+                    schema_params.params = {};
+                    for(let param in pai_code_command_params)
+                    {
+                        //console.log("param: " + pai_code_command_params[param].name);
+                        let new_param = new PAIModuleCommandParamSchema(pai_code_command_params[param].name, pai_code_command_params[param].description, pai_code_command_params[param].required, pai_code_command_params[param].label,pai_code_command_params[param]["default-value"]);
+                        schema_params.params[pai_code_command_params[param].name] = new_param;
+                    }
+                    //console.log(schema_params);
+                }
+                let pai_code_command_schema = new PAIModuleCommandSchema({
+                    op: pai_code_commands[cmd]["command-name"] ,
+                    func:pai_code_commands[cmd]["js-function"],
+                    params:schema_params.params
+
+                });
+                this.loadCommandWithSchema(pai_code_command_schema);
+            }
+        }
       
     }
     
@@ -61,9 +92,24 @@ class PCM_MY_MODULE extends PAICodeModule
 	version(cmd){
 		return require("./../../package").version;
 	}
-	
-	
-	
+
+
+
+
+    get_release_notes(cmd)
+    {
+        var pai_release_notes = fs.readFileSync(path.resolve(__dirname,"release-notes.txt"), 'utf8');
+        return pai_release_notes;
+    }
+
+    my_command(cmd)
+    {
+
+        return cmd.params["my-param"].value;
+    }
+
+
+
 }
 
 module.exports = PCM_MY_MODULE;

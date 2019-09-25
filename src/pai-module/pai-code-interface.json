@@ -1,0 +1,29 @@
+{
+  "pai-code-version":"1.0",
+  "pai-code-module-name":"my-module",
+    "pai-code-commands":[
+      {
+        "command-name":"version",
+        "js-function":"version"
+      },
+      {
+        "command-name":"release-notes",
+        "js-function":"get_release_notes"
+      },
+      {
+        "command-name":"my-command",
+        "js-function":"my_command",
+        "params":[
+          {
+            "name":"my-param",
+            "label":"My Param",
+            "description":"param1",
+            "required":false,
+            "default-value": "param-default-value"
+          }
+          ]}
+    ]
+}
+
+
+
